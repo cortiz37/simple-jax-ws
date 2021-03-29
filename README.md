@@ -1,9 +1,20 @@
-## rest_api
+## Jakarta 8 application (rs/ws)
 
-Simple ws with basic operations over `Element` entity
+### Build
 
-### Run
+- unix: `./gradlew war`
 
-- unix: `./gradlew bootRun`
+- windows: `gradlew.bat war` 
 
-- windows: `gradlew.bat bootRun` 
+
+#### Run (Docker):
+
+- `docker build --tag=jboss .`
+- `docker run -d -p 9090:8080 jboss`
+
+#### Debug:
+
+- `docker ps`
+- copy `container_id`
+- `docker logs <container_id>`
+- `docker exec -it <container_id> bash`
