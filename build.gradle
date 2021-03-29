@@ -1,0 +1,22 @@
+group = 'simple-jax-ws'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    compileOnly group: 'jakarta.platform', name: 'jakarta.jakartaee-api', version: '8.0.0'
+    //compileOnly 'jakarta.platform:jakarta.jakartaee-api:9.0.0'
+}
+
+war {
+    archiveName "ws-app.war"
+}
