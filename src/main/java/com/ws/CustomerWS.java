@@ -1,43 +1,37 @@
 package com.ws;
 
-import com.business.model.Author;
-import com.business.model.Book;
-import com.business.model.Section;
-import com.business.service.DBService;
+import com.business.model.Element;
+import com.business.service.ElementService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.jws.WebService;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Stateless
-@WebService(serviceName = "bookStore", portName = "bookStorePort")
+@WebService(serviceName = "elementService", portName = "elementServicePort")
 public class CustomerWS {
 
     @Inject
-    private DBService dbService;
+    private ElementService elementService;
 
-    public Book getBook(String title) {
-        return dbService.getAsStream(Book.class)
-            .map(o -> (Book) o)
-            .filter(b -> b.getTitle() == title)
-            .findFirst().get();
+    public List<Element> getAllElements() {
+        return elementService.getAll();
     }
 
-    public List<Author> getAllAuthors() {
-        return dbService.getAsStream(Author.class)
-            .map(o -> (Author) o)
-            .collect(Collectors.toList());
+    public Element getElementById(String id) {
+        return elementService.getElementById(id).orElse(null);
     }
 
-    public List<Section> getAllSections() {
-        return dbService.getAsStream(Section.class)
-            .map(o -> (Section) o)
-            .collect(Collectors.toList());
+    //delete
+
+    public String createElement(Element element) {
+        return elementService.create(element).getId();
     }
 
-    public Boolean registerNewSection(String sectionName) {
-        return dbService.getDatabase().get(Section.class.getSimpleName()).add(new Section(sectionName));
+    public String replaceElement(Element element) {
+        return "Not implemented yet!";
     }
+
+    //update (merge)
 }
