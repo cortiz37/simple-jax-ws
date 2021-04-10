@@ -3,8 +3,12 @@ package com.client;
 import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
 
 import javax.xml.ws.BindingProvider;
+import javax.xml.ws.handler.MessageContext;
 import java.net.URL;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class WSTester {
 
@@ -21,7 +25,7 @@ public class WSTester {
 //    }
 //
 //    private static void printAllElementNames(CustomerWS servicePort) {
-//        System.out.println("printing element names");
+//
 //    }
 //
 //    private static Element buildClient() {
@@ -32,6 +36,14 @@ public class WSTester {
 //        BindingProvider bindingProvider = (BindingProvider) ws;
 //        bindingProvider.getRequestContext().put("com.sun.xml.internal.ws.connect.timeout", seconds * 1000);
 //        bindingProvider.getRequestContext().put("com.sun.xml.internal.ws.request.timeout", seconds * 1000);
+//    }
+
+//    private static void setUserAndPass(CustomerWS ws, String user, String pass) {
+//        BindingProvider bindingProvider = (BindingProvider) ws;
+//        Map<String, List<String>> headers = new HashMap<>();
+//        headers.put("username", Collections.singletonList(user));
+//        headers.put("password", Collections.singletonList(pass));
+//        bindingProvider.getRequestContext().put(MessageContext.HTTP_REQUEST_HEADERS, headers);
 //    }
 
 //    private static void updatePortURL(CustomerWS ws) {
