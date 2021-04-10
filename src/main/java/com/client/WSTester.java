@@ -1,5 +1,7 @@
 package com.client;
 
+import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
+
 import javax.xml.ws.BindingProvider;
 import java.net.URL;
 import java.util.List;
@@ -7,24 +9,23 @@ import java.util.List;
 public class WSTester {
 
     public static void main(String[] args) throws Exception {
-//        BookStore bookStore = new BookStore();
+//        ElementService elementService = new ElementService();
 //
-//        final CustomerWS bookStorePort = bookStore.getBookStorePort();
+//        final CustomerWS servicePort = elementService.getElementServicePort();
 //
-//        requestData(bookStorePort);
+//        requestData(servicePort);
     }
 
-//    private static void requestData(CustomerWS ws) {
-//        final List<Section> allSections = ws.getAllSections();
+//    private static void requestData(CustomerWS servicePort) {
+//        printAllElementNames(servicePort);
+//    }
 //
-//        for (Section section : allSections) {
-//            System.out.println(section.getName());
-//        }
+//    private static void printAllElementNames(CustomerWS servicePort) {
+//        System.out.println("printing element names");
+//    }
 //
-//        System.out.println("=================");
-//        System.out.println("===> " + ws.registerNewSection("Special"));
-//        System.out.println("=================");
-//
+//    private static Element buildClient() {
+//        return null;
 //    }
 
 //    private static void setTimeout(CustomerWS ws, int seconds) {
@@ -37,7 +38,7 @@ public class WSTester {
 //        BindingProvider bindingProvider = (BindingProvider) ws;
 //        bindingProvider.getRequestContext().put(
 //            BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
-//            "http://localhost:9090/ws-app/bookStore/CustomerWS"
+//            "http://localhost:8080/ws-app/elementService/CustomerWS"
 //        );
 //    }
 }
