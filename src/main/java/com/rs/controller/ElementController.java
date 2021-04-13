@@ -14,6 +14,8 @@ import java.net.URI;
 import java.util.Optional;
 
 @Path("/v1/elements")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 @ApplicationScoped
 public class ElementController {
 
@@ -27,7 +29,6 @@ public class ElementController {
 
     @GET
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
     public Response getById(@PathParam("id") String id) {
         final Optional<Element> elementById = elementService.getElementById(id);
         if (elementById.isPresent()) {
@@ -38,14 +39,12 @@ public class ElementController {
 
     @DELETE
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathParam("id") String id) {
         elementService.delete(id);
         return Response.noContent().build();
     }
 
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response create(Element element) {
         Element created = elementService.create(element);
         return Response.created(URI.create("/v1/elements/" + created.getId())).build();
@@ -53,8 +52,6 @@ public class ElementController {
 
     @PUT
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response replaceById(@PathParam("id") String id, Element element) {
         return elementService.replace(id, element)
             .map(e -> Response.ok(e).build())
@@ -63,8 +60,6 @@ public class ElementController {
 
     @PATCH
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response updateById(@PathParam("id") String id, Element element) {
         try {
 
