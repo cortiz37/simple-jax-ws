@@ -32,6 +32,10 @@ public class ElementService {
         return elementRepository.delete(id);
     }
 
+    public void delete() {
+        elementRepository.delete();
+    }
+
     public Element create(Element element) {
         element.setId(UUID.randomUUID().toString());
         return elementRepository.save(element);

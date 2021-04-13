@@ -44,6 +44,12 @@ public class ElementController {
         return Response.noContent().build();
     }
 
+    @DELETE
+    public Response delete() {
+        elementService.delete();
+        return Response.noContent().build();
+    }
+
     @POST
     public Response create(Element element) {
         Element created = elementService.create(element);

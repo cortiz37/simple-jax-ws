@@ -39,6 +39,10 @@ public class ElementRepository {
             .orElse(false);
     }
 
+    public void delete() {
+        database.clear();
+    }
+
     public List<Element> getDatabase() {
         return database;
     }
