@@ -1,4 +1,11 @@
-## Jakarta 8 application (rs/ws)
+## simple-jax-ws (jakarta-8 app)
+
+This is for training purposes: simple rest / soap with basic operations over `Element` entity
+
+Branches:
+
+- **master** (jakarta-ee (J2EE) + simple rest API / soap API)
+- **develop** (simple web client example)
 
 ### Build
 
